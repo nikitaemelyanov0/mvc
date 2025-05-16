@@ -15,11 +15,12 @@ class UserController{
         } 
         else {
             // Добавление переменных в сессию
-            $_SESSION['name'] = $_POST['name'];
-            $_SESSION['age'] = $_POST['age'];
-            $_SESSION['password'] = $_POST['password'];
-            $_SESSION['login'] = $_POST['login'];
-            return new View("test", $_POST);
+            $userlogin = $_POST['login'];
+            $_SESSION[$userlogin]['name'] = $_POST['name'];
+            $_SESSION[$userlogin]['age'] = $_POST['age'];
+            $_SESSION[$userlogin]['password'] = $_POST['password'];
+            $_SESSION[$userlogin]['login'] = $_POST['login'];
+            return new View("index", $_POST);
         }
     }
 
@@ -31,8 +32,9 @@ class UserController{
 
     public function authorizationPost() {
         // Проверка введенного логина и пароля на соответствие логину и паролю, сохранненных в сессии
-        if($_POST['login']==$_SESSION['login'] & $_POST['password']==$_SESSION['password']) {
-            return new View('test', (array) $_POST);
+        $userlogin = $_POST['login'];
+        if($userlogin==$_SESSION[$userlogin]['login'] & $_POST['password']==$_SESSION[$userlogin]['password']) {
+            return new View('index', (array) $_POST);
         }
         else {
             echo 'неправильно набран логин или пароль';
