@@ -1,7 +1,5 @@
 <?php
 
-Route::get('/', [MainController::class, 'indexGet']);
-
 Route::get('/registration', [UserController::class, 'registrationGet']);
 Route::post('/registration', [UserController::class, 'registrationPost']);
 

@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Добро пожаловать</h1>
-    <p>Name: <?=  $_SESSION[$login]['name'] ?></p>
-    <p>age: <?=  $_SESSION[$login]['age'] ?></p>
+    <p>Имя: <?=  $_SESSION[$login]['name'] ?></p>
+    <p>Дата рождения: <?=  $_SESSION[$login]['age'] ?></p>
 </body>
 </html>
